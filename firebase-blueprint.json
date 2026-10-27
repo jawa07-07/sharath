@@ -1,0 +1,83 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User account profile and learning preferences",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "displayName": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 150 },
+        "mentorStyle": { "type": "string", "maxLength": 50 },
+        "dailyGoalMinutes": { "type": "integer" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "mentorStyle", "dailyGoalMinutes"]
+    },
+    "Conversation": {
+      "title": "Conversation",
+      "description": "User conversation thread with MonsterMentor",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "maxLength": 200 },
+        "mentorStyle": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "lastMessagePreview": { "type": "string", "maxLength": 300 },
+        "messageCount": { "type": "integer" }
+      },
+      "required": ["id", "userId", "title", "mentorStyle", "createdAt", "updatedAt"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Individual message in a conversation thread",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "conversationId": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "role": { "type": "string", "maxLength": 10 },
+        "content": { "type": "string", "maxLength": 8000 },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "conversationId", "userId", "role", "content", "timestamp"]
+    },
+    "LearningPlan": {
+      "title": "LearningPlan",
+      "description": "Saved personalized learning roadmap and module progress",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "topic": { "type": "string", "maxLength": 200 },
+        "level": { "type": "string", "maxLength": 50 },
+        "summary": { "type": "string", "maxLength": 1000 },
+        "estimatedHours": { "type": "integer" },
+        "completedModuleIds": { "type": "array" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "topic", "level", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile document"
+    },
+    "/users/{userId}/conversations/{conversationId}": {
+      "schema": "Conversation",
+      "description": "Conversation threads owned by the user"
+    },
+    "/users/{userId}/conversations/{conversationId}/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Messages inside a conversation"
+    },
+    "/users/{userId}/learningPlans/{planId}": {
+      "schema": "LearningPlan",
+      "description": "Saved learning plans and roadmap progress"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #090A10;
+    color: #F1F5F9;
+    overflow-x: hidden;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0f17;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232738;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b4259;
+}
+
+/* Neon Glow Utilities */
+.glow-green {
+  box-shadow: 0 0 25px -5px rgba(183, 255, 60, 0.35);
+}
+
+.glow-green-sm {
+  box-shadow: 0 0 12px -2px rgba(183, 255, 60, 0.3);
+}
+
+.glow-violet {
+  box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.4);
+}
+
+.glow-violet-sm {
+  box-shadow: 0 0 12px -2px rgba(139, 92, 246, 0.35);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 12px rgba(183, 255, 60, 0.5);
+}
+
+.text-glow-violet {
+  text-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+}
+
+/* Cyber grid background */
+.cyber-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Monster animation keyframes */
+@keyframes monster-bob {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes monster-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(183, 255, 60, 0.4));
+  }
+  50% {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 25px rgba(183, 255, 60, 0.7));
+  }
+}
+
+@keyframes eye-blink {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+.animate-monster-bob {
+  animation: monster-bob 4s ease-in-out infinite;
+}
+
+.animate-monster-pulse {
+  animation: monster-pulse 2.5s ease-in-out infinite;
+}
+
+.animate-eye-blink {
+  animation: eye-blink 4s infinite;
+  transform-origin: center;
+}

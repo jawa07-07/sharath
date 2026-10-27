@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="128" fill="#090A10"/>
+  <circle cx="256" cy="270" r="190" stroke="#8B5CF6" stroke-width="6" stroke-dasharray="16 16" opacity="0.3"/>
+  
+  <!-- Glowing Horns -->
+  <path d="M 170 160 C 130 110 90 90 70 70 C 80 115 120 160 150 185 Z" fill="#8B5CF6"/>
+  <circle cx="70" cy="70" r="14" fill="#B7FF3C"/>
+
+  <path d="M 342 160 C 382 110 422 90 442 70 C 432 115 392 160 362 185 Z" fill="#8B5CF6"/>
+  <circle cx="442" cy="70" r="14" fill="#B7FF3C"/>
+
+  <!-- Antenna -->
+  <line x1="256" y1="150" x2="256" y2="70" stroke="#4C1D95" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="256" cy="60" r="22" fill="#8B5CF6" stroke="#B7FF3C" stroke-width="8"/>
+  <circle cx="256" cy="60" r="10" fill="#B7FF3C"/>
+
+  <!-- Main Monster Body -->
+  <path d="M 130 240 C 130 155 190 135 256 135 C 322 135 382 155 382 240 C 390 330 375 410 310 425 C 280 430 232 430 202 425 C 137 410 122 330 130 240 Z" fill="#131622" stroke="#1E2438" stroke-width="10"/>
+
+  <!-- Cheeks circuits -->
+  <line x1="145" y1="290" x2="175" y2="290" stroke="#8B5CF6" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="175" cy="290" r="5" fill="#B7FF3C"/>
+  <line x1="367" y1="290" x2="337" y2="290" stroke="#8B5CF6" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="337" cy="290" r="5" fill="#B7FF3C"/>
+
+  <!-- Forehead Crest -->
+  <polygon points="256,170 276,195 256,220 236,195" fill="#10131F" stroke="#B7FF3C" stroke-width="4"/>
+
+  <!-- Eyes -->
+  <ellipse cx="200" cy="255" rx="42" ry="48" fill="#0A0C14" stroke="#252B42" stroke-width="6"/>
+  <ellipse cx="200" cy="255" rx="28" ry="34" fill="#B7FF3C"/>
+  <ellipse cx="200" cy="255" rx="12" ry="20" fill="#06080D"/>
+  <circle cx="208" cy="242" r="8" fill="#FFFFFF"/>
+
+  <ellipse cx="312" cy="255" rx="42" ry="48" fill="#0A0C14" stroke="#252B42" stroke-width="6"/>
+  <ellipse cx="312" cy="255" rx="28" ry="34" fill="#B7FF3C"/>
+  <ellipse cx="312" cy="255" rx="12" ry="20" fill="#06080D"/>
+  <circle cx="320" cy="242" r="8" fill="#FFFFFF"/>
+
+  <!-- Mouth with cyber fangs -->
+  <path d="M 215 330 Q 256 360 297 330" stroke="#B7FF3C" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <polygon points="228,332 238,350 248,333" fill="#FFFFFF"/>
+  <polygon points="264,333 274,350 284,332" fill="#FFFFFF"/>
+
+  <!-- Power Core Indicator -->
+  <circle cx="256" cy="420" r="12" fill="#B7FF3C"/>
+</svg>

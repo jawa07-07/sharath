@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function() {
+        function shouldSuppress(item) {
+          if (!item) return false;
+          var str = '';
+          try {
+            if (typeof item === 'string') {
+              str = item;
+            } else if (item instanceof Error) {
+              str = (item.message || '') + ' ' + (item.stack || '');
+            } else {
+              str = (item.message || '') + ' ' + (item.stack || '') + ' ' + JSON.stringify(item);
+            }
+          } catch (_) {
+            str = String(item);
+          }
+          return (
+            str.indexOf('WebSocket') !== -1 ||
+            str.indexOf('@vite/client') !== -1 ||
+            str.indexOf('closed without opened') !== -1
+          );
+        }
+
+        function checkArgs(args) {
+          for (var i = 0; i < args.length; i++) {
+            if (shouldSuppress(args[i])) return true;
+          }
+          return false;
+        }
+
+        var origConsoleError = console.error;
+        console.error = function() {
+          if (checkArgs(arguments)) return;
+          return origConsoleError.apply(console, arguments);
+        };
+
+        var origConsoleWarn = console.warn;
+        console.warn = function() {
+          if (checkArgs(arguments)) return;
+          return origConsoleWarn.apply(console, arguments);
+        };
+
+        window.addEventListener('error', function(e) {
+          if (
+            shouldSuppress(e.message) ||
+            shouldSuppress(e.filename) ||
+            shouldSuppress(e.error)
+          ) {
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            return true;
+          }
+        }, true);
+
+        window.addEventListener('unhandledrejection', function(e) {
+          if (shouldSuppress(e.reason)) {
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            return true;
+          }
+        }, true);
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MonsterMentor AI - Unleash Your Potential</title>
+    <meta name="description" content="Your personal futuristic AI monster mentor for learning, coding, creating, and unlocking your full potential." />
+    <meta property="og:title" content="MonsterMentor AI - Unleash Your Potential" />
+    <meta property="og:description" content="Your personal futuristic AI monster mentor for learning, coding, creating, and unlocking your full potential." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#090A10" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="MonsterAI" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#090A10] text-slate-100 antialiased selection:bg-[#B7FF3C] selection:text-black">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

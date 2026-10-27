@@ -1,0 +1,8 @@
+{
+  "name": "Remix MonsterMentor AI",
+  "description": "Your personal futuristic AI monster mentor for learning, coding, creating, and unlocking your full potential.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
